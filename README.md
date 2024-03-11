@@ -15,8 +15,9 @@ This script is designed to scrape data from the National Payments Corporation of
     git clone https://github.com/digambar02/NPCI-Scraper.git
 
 2. Install the required dependencies:
-   
+
     pip install -r requirements.txt
+   
 
 4. Download the appropriate WebDriver for Firefox. You can download the geckodriver from [here](https://github.com/mozilla/geckodriver/releases) and place it in the repository folder.
 
