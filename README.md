@@ -12,7 +12,7 @@ This script is designed to scrape data from the National Payments Corporation of
 
 1. Clone the repository:
 
-    git clone https://github.com/digambar02/NPCI_Scraper.git
+    git clone https://github.com/digambar02/NPCI-Scraper.git
 
 2. Install the required dependencies:
    
