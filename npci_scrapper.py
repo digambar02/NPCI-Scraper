@@ -22,7 +22,7 @@ driver = webdriver.Firefox(service=service, options=options)
 full_data = pd.DataFrame()
 
 # Loop through the available products on the NPCI website
-for product_range in [1, 2, 3, 4, 5, 7, 8, 9, 10, 11]:
+for product_range in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]:
     
     # XPath to select the desired product
     select_product = f'/html/body/section[3]/div/div/div/div/div[1]/div[2]/div[1]/div[1]/div[2]/div/select/option[{product_range}]'
@@ -39,6 +39,7 @@ for product_range in [1, 2, 3, 4, 5, 7, 8, 9, 10, 11]:
         3: 'NETC',
         4: 'NFS',
         5: 'AePS - BHIM Aadhaar Pay',
+        6: 'AePS - Cash Withdrawal',
         7: 'AePS - Funds Transfer',
         8: 'NACH - APBS',
         9: 'NACH - Credit',
@@ -103,12 +104,12 @@ for product_range in [1, 2, 3, 4, 5, 7, 8, 9, 10, 11]:
                         number = parts[3].replace(',', '')
                         values.append(float(number))
 
-                    # Create a DataFrame for the current type of data (volumn or value)
+                    # Create a data frame for the current type of data (volume or value)
                     if value_range == 1:
                         temp = pd.DataFrame({'Date': dates, 'Volumn': values})
                         # Add the product information to the DataFrame
                         temp['Product'] = product
-                        # Concatenate the DataFrame with the previous data
+                        # Concatenate the data frame with the previous data
                         new_data = pd.concat([new_data, temp], axis=0)
                     else:
                         temp = pd.DataFrame({'Date': dates, 'Value': values})
@@ -117,7 +118,7 @@ for product_range in [1, 2, 3, 4, 5, 7, 8, 9, 10, 11]:
                         # Merge the DataFrame with the previous data based on the date column
                         new_data = new_data.merge(temp, on='Date', how='left')
 
-                # Concatenate the DataFrame for the current month with the previous months' data
+                # Concatenate the data frame for the current month with the previous month's data
                 full_data = pd.concat([full_data, new_data], axis=0)
                 
             except NoSuchElementException:
