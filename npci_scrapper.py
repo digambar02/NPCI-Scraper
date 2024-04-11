@@ -17,7 +17,7 @@ service = Service(executable_path="C:\\Users\\DIGAMBAR\\Desktop\\geckodriver.exe
 options = webdriver.FirefoxOptions()
 options.binary_location = r"C:\\Program Files\\Mozilla Firefox\\firefox.exe"
 driver = webdriver.Firefox(service=service, options=options)
-
+driver.get('https://www.npci.org.in/statistics/monthly-metrics')
 # Initialize an empty DataFrame to store the retrieved data
 full_data = pd.DataFrame()
 
